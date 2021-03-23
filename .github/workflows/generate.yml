@@ -1,0 +1,25 @@
+name: Generate
+
+on:
+  push:
+    branches: ['main']
+
+jobs:
+  build:
+    name: Generate PDF
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out code into the workspace
+      uses: actions/checkout@v2
+
+    - name: Build Docker image
+      run: make build
+
+    - name: Generate
+      run: make generate
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: resume
+        path: ./*.pdf

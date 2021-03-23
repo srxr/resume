@@ -1,0 +1,11 @@
+/pdf/
+resume*
+*.md
+*.aux
+*.log
+*.out
+*.pdf
+*.tex
+!README.md
+!template.aux
+!template.tex
